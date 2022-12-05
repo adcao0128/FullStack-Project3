@@ -13,7 +13,9 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) =>{
     const posts = await loadPostsCollection();
     await posts.insertOne({
-        text: req.body.text,
+        song: req.body.song,
+        artist: req.body.artist,
+        album: req.body.album,
         createdAt: new Date()
     });
     res.status(201).send();
